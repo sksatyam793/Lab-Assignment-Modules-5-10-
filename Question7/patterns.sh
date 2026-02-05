@@ -35,4 +35,3 @@ do
         echo "$word" >> mixed.txt
     fi
 done
-
