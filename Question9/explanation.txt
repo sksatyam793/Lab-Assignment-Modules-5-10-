@@ -1,0 +1,34 @@
+#include <unistd.h>
+Provides access to fork() and process-related system calls.
+
+#include <sys/wait.h>
+Required for wait() and waitpid() to clean up child processes.
+
+for (i = 0; i < 3; i++)
+Creates multiple child processes (three in this case).
+
+pid = fork();
+
+Creates a new child process
+
+Returns 0 in the child and child PID in the parent
+
+if (pid == 0)
+Identifies the child process.
+
+exit(0);
+Terminates the child immediately after execution.
+
+wait(&status)
+
+Parent waits for terminated child processes
+
+Retrieves exit status
+
+Prevents zombie processes
+
+while ((child_pid = wait(&status)) > 0)
+Ensures all child processes are cleaned up.
+
+printf("Parent cleaned up child PID: %d\n", child_pid);
+Prints the PID of each child reaped by the parent.
