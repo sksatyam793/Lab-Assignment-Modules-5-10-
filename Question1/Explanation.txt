@@ -1,0 +1,31 @@
+#!/bin/bash
+Specifies that the script should be executed using the Bash shell.
+
+if [ "$#" -ne 1 ]; then
+Checks whether exactly one command-line argument is provided.
+
+path="$1"
+Stores the first argument (file or directory path) in a variable.
+
+if [ ! -e "$path" ]; then
+Verifies whether the given path exists.
+
+if [ -f "$path" ]; then
+Checks if the argument is a file.
+
+Uses wc to display lines, words, and characters.
+
+elif [ -d "$path" ]; then
+Checks if the argument is a directory.
+
+find -type f | wc -l counts total files
+
+find -name "*.txt" | wc -l counts .txt files
+
+Error messages are displayed for:
+
+Invalid argument count
+
+Non-existent path
+
+Unsupported file type
