@@ -1,0 +1,34 @@
+#!/bin/bash
+Specifies that the script should be executed using the Bash shell.
+
+grep -E "^[a-zA-Z0-9]+@[a-zA-Z]+\.com$" emails.txt
+
+grep -E enables extended regular expressions
+
+Matches valid email format:
+
+Username: letters and digits
+
+@ symbol
+
+Domain: letters only
+
+.com ending
+
+sort | uniq
+
+sort arranges email addresses in order
+
+uniq removes duplicate entries
+
+> valid.txt
+Redirects the cleaned valid email addresses into valid.txt.
+
+grep -Ev "..." emails.txt
+
+-v selects lines not matching the valid pattern
+
+Extracts all invalid email addresses
+
+> invalid.txt
+Stores invalid email addresses in invalid.txt.
