@@ -1,0 +1,36 @@
+#!/bin/bash
+Specifies that the script runs using the Bash shell.
+
+Argument count check
+Ensures the script receives exactly one argument (directory path).
+
+dir="$1"
+Stores the directory path provided by the user.
+
+Directory validation
+Confirms that the provided path exists and is a directory.
+
+mkdir -p "$dir/backup"
+Creates a subdirectory named backup/ inside the given directory.
+-p prevents errors if it already exists.
+
+$$
+Displays the PID of the main (parent) script.
+
+for file in "$dir"/*
+Loops through all entries in the directory.
+
+[ -f "$file" ] || continue
+Ensures only regular files are processed.
+
+mv "$file" "$dir/backup/" &
+Moves each file into backup/ in the background using &.
+
+$!
+Prints the PID of the most recently started background process.
+
+wait
+Forces the parent script to wait until all background processes finish.
+
+Final message
+Confirms that all move operations are complete.
