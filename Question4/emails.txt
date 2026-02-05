@@ -1,0 +1,6 @@
+user1@gmail.com
+abc@yahoo.com
+test@domain
+user@gmail.com
+user@gmail.com
+123@abc.com
