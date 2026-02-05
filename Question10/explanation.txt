@@ -1,0 +1,48 @@
+#include <signal.h>
+Required for signal handling functions such as signal() and kill().
+
+handle_sigterm()
+
+Handles the SIGTERM signal
+
+Prints a message
+
+Does not exit, so the parent continues running
+
+handle_sigint()
+
+Handles the SIGINT signal
+
+Prints a message
+
+Calls exit(0) to terminate the parent gracefully
+
+signal(SIGTERM, handle_sigterm);
+Registers the SIGTERM handler for the parent process.
+
+signal(SIGINT, handle_sigint);
+Registers the SIGINT handler for the parent process.
+
+fork() (first child)
+
+Child sleeps for 5 seconds
+
+Sends SIGTERM to the parent using kill()
+
+fork() (second child)
+
+Child sleeps for 10 seconds
+
+Sends SIGINT to the parent
+
+while (1) { pause(); }
+
+Parent runs indefinitely
+
+pause() suspends execution until a signal is received
+
+Graceful termination
+
+Parent ignores SIGTERM (continues running)
+
+Parent exits cleanly on SIGINT
