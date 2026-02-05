@@ -1,0 +1,36 @@
+#!/bin/bash
+Specifies that the script should be executed using the Bash shell.
+
+if [ "$#" -ne 1 ]; then
+Checks whether exactly one command-line argument (log file name) is provided.
+
+logfile="$1"
+Stores the log file name passed as the first argument.
+
+if [ ! -f "$logfile" ] || [ ! -r "$logfile" ]; then
+
+-f checks if the file exists
+
+-r checks if the file is readable
+Displays an error if validation fails.
+
+total_entries=$(wc -l < "$logfile")
+Counts the total number of log entries (lines in the file).
+
+grep -c " INFO ", grep -c " WARNING ", grep -c " ERROR "
+Counts the number of log messages for each log level.
+
+grep " ERROR " "$logfile" | tail -1
+Extracts the most recent ERROR message from the log file.
+
+date=$(date +%Y-%m-%d)
+Retrieves the current date to create a dated report file.
+
+logsummary_<date>.txt
+Generates the required report file name format.
+
+Output redirection { ... } > "$report_file"
+Writes the complete log summary into the report file.
+
+cat "$report_file"
+Displays the generated report on the terminal.
