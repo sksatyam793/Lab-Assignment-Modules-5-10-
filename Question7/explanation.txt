@@ -1,0 +1,29 @@
+#!/bin/bash
+Specifies the Bash shell for script execution.
+
+Argument validation
+
+Ensures exactly one input file is provided.
+
+Checks that the file exists and is readable.
+
+tr -cs '[:alpha:]' '\n'
+
+Splits the input into words only (alphabetic characters).
+
+Converts non-letters into newlines.
+
+tr 'A-Z' 'a-z'
+
+Converts all words to lowercase to ignore case while matching.
+
+Pattern checks using regex:
+
+^[aeiou]+$ → ONLY vowels → vowels.txt
+
+^[^aeiou]+$ → ONLY consonants → consonants.txt
+
+^[^aeiou].*[aeiou] → Mixed, starting with a consonant → mixed.txt
+
+Output redirection (>>)
+Appends matching words to their respective files.
