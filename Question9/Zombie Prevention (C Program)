@@ -1,1 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    int i;
+    pid_t pid;
+
+    // Create multiple child processes
+    for (i = 0; i < 3; i++) {
+        pid = fork();
+
+        if (pid == 0) {
+            // Child process
+            printf("Child process created with PID: %d\n", getpid());
+            exit(0);   // Child exits immediately
+        }
+    }
+
+    // Parent process cleans up terminated children
+    pid_t child_pid;
+    int status;
+
+    while ((child_pid = wait(&status)) > 0) {
+        printf("Parent cleaned up child process with PID: %d\n", child_pid);
+    }
+
+    return 0;
+}
 
