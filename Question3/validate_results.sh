@@ -38,4 +38,3 @@ done < marks.txt
 echo "----------------------------"
 echo "Total students passed all subjects: $pass_all"
 echo "Total students failed in exactly one subject: $fail_one"
-
