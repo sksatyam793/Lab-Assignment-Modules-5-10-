@@ -32,4 +32,3 @@ do
         echo "$file : Contents are DIFFERENT"
     fi
 done
-
