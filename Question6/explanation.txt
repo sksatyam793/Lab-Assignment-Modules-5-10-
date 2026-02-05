@@ -1,0 +1,40 @@
+#!/bin/bash
+Ensures the script runs using the Bash shell.
+
+File validation block
+
+if [ ! -f input.txt ] || [ ! -r input.txt ]; then
+Checks whether input.txt exists and is readable.
+Prevents runtime errors.
+
+tr -cs '[:alpha:]' '\n'
+
+Converts all non-alphabetic characters into newlines
+
+Effectively extracts individual words
+
+tr 'A-Z' 'a-z'
+Converts all words to lowercase for uniform processing.
+
+Longest word calculation
+Uses awk to compare word lengths and store the maximum length word.
+
+Shortest word calculation
+Uses awk to track the minimum word length encountered.
+
+Average word length
+
+Adds lengths of all words
+
+Divides by total word count
+
+sort | uniq | wc -l
+
+sort arranges words
+
+uniq removes duplicates
+
+wc -l counts unique words
+
+Final echo statements
+Display all required metrics clearly.
