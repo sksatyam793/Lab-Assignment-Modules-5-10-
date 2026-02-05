@@ -1,1 +1,39 @@
+#!/bin/bash
+Specifies that the script should run using the Bash shell.
 
+pass_all=0, fail_one=0
+Variables to count students who:
+
+Passed all subjects
+
+Failed in exactly one subject
+
+while IFS=',' read -r roll name m1 m2 m3
+
+Reads each line from marks.txt
+
+IFS=',' splits input using commas
+
+Stores values into variables
+
+fail_count=0
+Initializes a counter for failed subjects per student.
+
+if [ "$m1" -lt 33 ]
+Checks whether the student failed in a subject
+(Passing marks = 33).
+
+((fail_count++))
+Increments the failure count using arithmetic operations.
+
+if [ "$fail_count" -eq 0 ]
+Student passed all subjects.
+
+elif [ "$fail_count" -eq 1 ]
+Student failed in exactly one subject.
+
+((pass_all++)), ((fail_one++))
+Updates the category counters.
+
+Final echo statements
+Print the total count of students in each category.
