@@ -26,4 +26,3 @@ echo "Longest word: $longest"
 echo "Shortest word: $shortest"
 echo "Average word length: $average"
 echo "Total unique words: $unique"
-

@@ -1,0 +1,2 @@
+Linux is powerful and Linux is fast
+Shell scripting is powerful
